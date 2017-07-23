@@ -1,0 +1,118 @@
+<div class="page page-masonry" ng-controller="BeritaCtrl">
+
+  <div class="pageheader">
+
+    <h2>Manage Berita</h2>
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> SMPN 2 Sungai Penuh</a>
+        </li>
+        <li>
+          <a ui-sref="app.gallery.list">Manage Berita</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- row -->
+  <div class="row">
+
+
+    <div class="col-md-12">
+
+      <!-- tile -->
+      <section class="tile" fullscreen="isFullscreen01">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Manage </strong>Berita</h1>
+          <ul class="controls">
+
+              <li><a ui-sref="app.berita.new" ><i class="fa fa-plus mr-5"></i> Add Berita</a></li>
+
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile body -->
+        <div class="tile-body">
+
+
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <input type="text" class="form-control underline-input w-md pull-right mb-20" placeholder="Search..." ng-model="searchKeywords" ng-keyup="search()">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table ng-table="tableParams" class="table table-custom">
+              <tr ng-repeat="item in currentPageData">
+                <td data-title="'No'">
+                  {{no + $index}}
+                </td>
+                <td data-title="'Judul'" sortable="'JUDUL'">
+                  <a ui-sref="app.berita.show({ id: item.ID })">{{item.JUDUL}}</a>
+                </td>
+                <td data-title="'Tipe'" sortable="'TIPE'">
+                  {{item.TIPE}}
+                </td>
+                <td data-title="'Status'" sortable="'STATUS'">
+                  <span class="label" ng-class="{'bg-success' : item.STATUS == 'Published','bg-warning' : item.STATUS == 'Not Published','bg-lightred' : item.STATUS == '3'}">
+                    {{item.STATUS}}
+                  </span>
+                </td>
+                <td data-title="'Actions'" class="actions">
+                  <a href class="text-success text-uppercase text-strong text-sm mr-10" ui-sref="app.berita.edit({id : item.ID})">Edit</a>
+                  <a href class="text-danger text-uppercase text-strong text-sm mr-10" ng-click="delete(item.ID)">Delete</a>
+                </td>
+
+              </tr>
+            </table>
+            <br>
+                <div class="row">
+                <div class="col-md-6">
+                    <label>
+                    Show 
+                    <select data-ng-model="numPerPage"
+                        data-ng-options="num for num in numPerPageOpt"
+                        data-ng-change="onNumPerPageChange()">
+                    </select> 
+                    entries per page
+                    </label>
+                </div>
+                <div class="col-md-6 text-right">
+                    <uib-pagination class="pagination-sm"
+                        ng-model="currentPage"
+                        total-items="filteredData.length"
+                        max-size="4"
+                        ng-change="select(currentPage)"
+                        items-per-page="numPerPage"
+                        rotate="false"
+                        previous-text="&lsaquo;" next-text="&rsaquo;"
+                        boundary-links="true"></uib-pagination>
+                </div>
+                </div>
+
+          </div>
+
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+
+    </div>
+
+  </div>
+  <!-- /row -->
+
+</div>
+
+

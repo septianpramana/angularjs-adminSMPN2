@@ -1,0 +1,65 @@
+<div id="pageloader" page-loader></div>
+
+<form name="form" class="form-horizontal form-validation" role="form" validate>
+
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label"><strong>Judul Berita :</strong></label>
+    <div class="col-sm-10">
+      <label class="control-label">{{data.judulBerita}}</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <label for="" class="col-sm-2 control-label"><strong>Isi Berita :</strong></label>
+      <div class="col-sm-9">
+          <!-- <section class="panel panel-default">
+              <div class="panel-body">
+                  <div text-angular ng-model="data.isiBerita" class="ui-editor" required></div>
+              </div>
+          </section> -->
+          <label class="control-label" style="text-align: justify;">{{data.isiBerita}}</label>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="unit" class="col-sm-2 control-label"><strong>Tipe :</strong></label>
+    <div class="col-sm-10">
+      <!-- <select chosen="{width: '100%'}" name="status" class="form-control" id="status" ng-model="data.tipe" ng-options="item for item in cb.tipe" data-placeholder="Pilih Tipe..." required>
+          <option></option>
+      </select> -->
+      <label class="control-label">{{data.tipe}}</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="unit" class="col-sm-2 control-label"><strong>Status :</strong></label>
+    <div class="col-sm-10">
+     <!--  <select chosen="{width: '100%'}" name="status" class="form-control" id="status" ng-options="item for item in cb.status" ng-model="data.status" data-placeholder="Pilih Status..." required>
+          <option></option>
+      </select> -->
+      <label class="control-label">{{data.status}}</label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2"><strong>Gambar :</strong></label>
+   <!--  <div class="col-sm-4">
+      <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+        buttonText: 'Select file',
+        iconName: 'fa fa-inbox'
+      }" fileread="data.gambar" required>
+    </div> -->
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2">&nbsp;</label>
+    <div class="col-sm-9">
+      <img src="{{data.gambar}}" ng-hide="data.gambar == null" width="30%">
+    </div>
+  </div>
+  <hr>
+  <div class="form-footer">
+    <button class="btn btn-lightred btn-rounded btn-ef btn-ef-4 btn-ef-4c" ui-sref="app.berita.list"><i class="fa fa-arrow-left"></i> Kembali</button>
+  </div>
+
+</form>

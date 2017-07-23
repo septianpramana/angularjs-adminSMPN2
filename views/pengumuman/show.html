@@ -1,0 +1,51 @@
+<div class="page page-products" ng-controller="PengumumanEditCtrl">
+  <div class="pageheader">
+    <h2>Detail Berita</h2>
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref="app.pengumuman.list">Manage Pengumuman</a>
+        </li>
+        <li>
+          <a ui-sref="app.pengumuman.show">Detail Pengumuman</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- row -->
+  <div class="row">
+
+
+    <div class="col-md-12">
+
+      <!-- tile -->
+      <section class="tile tile-simple">
+
+
+        <!-- tile body -->
+        <div class="tile-body">
+            
+
+        </div>
+        <!-- /tile body -->
+        <div class="tile-body" ng-include="'views/pengumuman/show_form.html'">
+
+
+        </div>
+
+      </section>
+      <!-- /tile -->
+
+    </div>
+
+  </div>
+  <!-- /row -->
+</div>

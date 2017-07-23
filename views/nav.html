@@ -1,0 +1,19 @@
+<div id="sidebar-wrap" ng-controller="NavCtrl">
+  <uib-accordion close-others="oneAtTime" slimscroll="{height: '100%'}">
+
+    <uib-accordion-group is-open="status.isFirstOpen" ng-class="{'open': status.isFirstOpen, 'closed': !status.isFirstOpen}">
+      <uib-accordion-heading>
+        Navigation <i class="pull-right fa" ng-class="{'fa-angle-up': status.isFirstOpen, 'fa-angle-down': !status.isFirstOpen}"></i>
+      </uib-accordion-heading>
+      <ul id="navigation" nav-collapse ripple>
+        <li ui-sref-active="active"><a ui-sref="app.dashboard"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
+        <li ng-class="{'active':$state.includes('app.berita')}"><a ui-sref="app.berita.list"><i class="fa fa-newspaper-o"></i>  <span>Berita</span></a></li>
+        <li ng-class="{'active':$state.includes('app.pengumuman')}"><a ui-sref="app.pengumuman.list"><i class="fa fa-bullhorn"></i>  <span>Pengumuman</span></a></li>
+        <li ng-class="{'active':$state.includes('app.gallery')}"><a ui-sref="app.gallery.list"><i class="fa fa-image"></i>  <span>Galeri Sekolah</span></a></li>
+        <li ng-class="{'active':$state.includes('app.pengaturan')}"><a ui-sref="app.pengaturan.list"><i class="icon-settings"></i>  <span>Settings</span></a></li>
+        
+      </ul>
+    </uib-accordion-group>
+
+  </uib-accordion>
+</div>
